@@ -1,8 +1,8 @@
 import "./Board.css";
-import {useGlobal} from "../GlobalProvider";
+import {useGlobal} from "../Providers/GlobalProvider";
 import Row from "../Common/Row"
 import {GameState} from "../Types/Types";
-import {getPlayerWonText} from "../utils";
+import {getPlayerWonText} from "../Utils/utils";
 import Button from "./Button";
 import {PLAY_AGAIN_TEXT} from "../Constants/Constants";
 

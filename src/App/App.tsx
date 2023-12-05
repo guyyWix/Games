@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Board from "./TicaTacToe/Board";
-import GlobalProvider from "./GlobalProvider";
+import Board from "../TicaTacToe/Board";
+import GlobalProvider from "../Providers/GlobalProvider";
 
 function App() {
 

@@ -1,5 +1,5 @@
-import {Board, GameState} from "./Types/Types";
-import {FIRST_PLAYER, SECOND_PLAYER} from "./Constants/Constants";
+import {Board, GameState} from "../Types/Types";
+import {FIRST_PLAYER, SECOND_PLAYER} from "../Constants/Constants";
 
 export const checkIfGameIsDone: (board: Board) => boolean = (board: Board): boolean => {
     console.log(`col ${checkColumns(board)} rows ${checkRows(board)} diag ${checkDiagonalEqual(board)}`)

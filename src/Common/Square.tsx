@@ -1,5 +1,5 @@
 import './Square.css';
-import {useGlobal} from "../GlobalProvider";
+import {useGlobal} from "../Providers/GlobalProvider";
 import React from "react";
 import {GameState, Square as ISquare} from "../Types/Types";
 import Button from "../TicaTacToe/Button";

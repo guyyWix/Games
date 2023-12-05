@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {checkIfGameIsDone, initBoard} from "./utils";
-import {COLUMNS, FIRST_PLAYER, ROWS, SECOND_PLAYER} from "./Constants/Constants";
-import {Board, GameState, Square} from './Types/Types';
+import {checkIfGameIsDone, initBoard} from "../Utils/utils";
+import {COLUMNS, FIRST_PLAYER, ROWS, SECOND_PLAYER} from "../Constants/Constants";
+import {Board, GameState, Square} from '../Types/Types';
 
 const GlobalContext = React.createContext({
     currentPlayer: FIRST_PLAYER, toggleCurrPlayer: () => {
