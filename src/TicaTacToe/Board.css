@@ -2,30 +2,6 @@ ul {
     list-style-type: none;
 }
 
-.game-over {
-    text-align: center;
-    margin-bottom: 20px; /* Adjust margin between text and board */
-}
-
-.game-over > div {
-    font-size: 1.5em; /* Adjust font size of game-over text */
-    margin-bottom: 10px; /* Adjust margin between text elements */
-}
-
-.game-over > button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.game-over > button:hover {
-    background-color: #0056b3;
-}
-
 .board {
     display: flex;
     flex-direction: column;

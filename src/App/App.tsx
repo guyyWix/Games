@@ -1,16 +1,21 @@
 import React from 'react';
 import './App.css';
 import Board from "../TicaTacToe/Board";
-import GlobalProvider from "../Providers/GlobalProvider";
+import {useGlobal} from "../Providers/GlobalProvider";
+import GameOverBanner from "../Common/GameOverBanner";
+import {GameState} from "../Types/Types";
 
 function App() {
 
+    const globalContext = useGlobal();
+    const isGameOver = globalContext.gameState !== GameState.Ongoing;
 
-    return (<GlobalProvider>
-        <div className="container">
-            <Board/>
-        </div>
-    </GlobalProvider>)
+    return (<div className="container">
+        {isGameOver && <GameOverBanner gameState={globalContext.gameState}
+                                       onPlayAgainClickHandler={globalContext.resetLiveBoard}/>}
+
+        <Board/>
+    </div>)
 }
 
 export default App;
