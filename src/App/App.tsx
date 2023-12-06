@@ -12,8 +12,7 @@ function App() {
 
     return (<div className="container">
         {isGameOver && <GameOverBanner gameState={globalContext.gameState}
-                                       onPlayAgainClickHandler={globalContext.resetLiveBoard}/>}
-
+                                       onPlayAgainClickHandler={globalContext.resetBoard}/>}
         <Board/>
     </div>)
 }
