@@ -1,9 +1,9 @@
 import "./Board.css";
-import {useGlobal} from "../Providers/GlobalProvider";
+import {useTicTacToe} from "../Providers/TicTacToeProvider";
 import Row from "../Common/Row"
 
 const Board = () => {
-    const globalContext = useGlobal();
+    const globalContext = useTicTacToe();
     const globalBoard = globalContext.liveBoard;
 
     const board = globalBoard.map((cells, rowIndex) => {

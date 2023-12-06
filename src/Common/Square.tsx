@@ -1,12 +1,12 @@
 import './Square.css';
-import {useGlobal} from "../Providers/GlobalProvider";
+import {useTicTacToe} from "../Providers/TicTacToeProvider";
 import React from "react";
 import {GameState, Square as ISquare} from "../Types/Types";
 import Button from "../TicaTacToe/Button";
 
 
 const Square: React.FC<ISquare> = ({row, column, value}) => {
-    const globalContext = useGlobal();
+    const globalContext = useTicTacToe();
     const isButtonDisabled = globalContext.gameState !== GameState.Ongoing;
     const onCellClickHandle = () => {
         if (value !== '') {

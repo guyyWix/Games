@@ -63,7 +63,7 @@ const isColEqual = (board: Board, col: number) => {
     return true;
 }
 
-const isBoardCellValid = (board: Board, row: number, column: number) => {
+export const isBoardCellValid = (board: Board, row: number, column: number) => {
     return (board[row][column].value.length !== 0);
 }
 

@@ -3,7 +3,7 @@ import {checkIfGameIsDone, initBoard} from "../Utils/utils";
 import {COLUMNS, FIRST_PLAYER, ROWS, SECOND_PLAYER} from "../Constants/Constants";
 import {Board, GameState, Square} from '../Types/Types';
 
-const GlobalContext = React.createContext({
+const TicTacToeContext = React.createContext({
     currentPlayer: FIRST_PLAYER, toggleCurrPlayer: () => {
     }, updateLiveBoard: (square: Square) => {
     },
@@ -17,40 +17,47 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export const useGlobal = () => {
-    return useContext(GlobalContext);
+export const useTicTacToe = () => {
+    return useContext(TicTacToeContext);
 }
-const GlobalProvider: React.FC<Props> = ({children}) => {
+const TicTacToeProvider: React.FC<Props> = ({children}) => {
     const toggleCurrPlayer = () => {
         setCurrentPlayer((prev) => prev === FIRST_PLAYER ? SECOND_PLAYER : FIRST_PLAYER);
     }
 
-    const updateLiveBoard: (square: Square) => void = (square) => {
-        setLiveBoard((prev) => {
+    const updateBoardCell: (square: Square) => void = (square) => {
+        setBoard((prev) => {
             const newArr = structuredClone(prev);
             newArr[square.row][square.column] = {...square};
             return newArr;
         });
     };
 
-    const resetLiveBoard = () => {
-        setLiveBoard(initBoard(COLUMNS, ROWS));
+    const resetBoard = () => {
+        setBoard(initBoard(COLUMNS, ROWS));
         setGameState(GameState.Ongoing);
     }
 
-    const [liveBoard, setLiveBoard] = useState<Board>(initBoard(COLUMNS, ROWS));
+    const [board, setBoard] = useState<Board>(initBoard(COLUMNS, ROWS));
     const [currentPlayer, setCurrentPlayer] = useState(FIRST_PLAYER);
     const [gameState, setGameState] = useState(GameState.Ongoing);
     useEffect(() => {
-        if (checkIfGameIsDone(liveBoard)) {
+        if (checkIfGameIsDone(board)) {
             currentPlayer === FIRST_PLAYER ? setGameState(GameState.SecondPlayerWon) : setGameState(GameState.FirstPlayerWon);
         }
-    }, [liveBoard, currentPlayer])
+    }, [board, currentPlayer])
 
-    return (<GlobalContext.Provider
-        value={{currentPlayer, toggleCurrPlayer, updateLiveBoard, resetLiveBoard, liveBoard, gameState}}>
+    return (<TicTacToeContext.Provider
+        value={{
+            currentPlayer,
+            toggleCurrPlayer,
+            updateLiveBoard: updateBoardCell,
+            resetLiveBoard: resetBoard,
+            liveBoard: board,
+            gameState
+        }}>
         {children}
-    </GlobalContext.Provider>);
+    </TicTacToeContext.Provider>);
 }
 
-export default GlobalProvider;
+export default TicTacToeProvider;
