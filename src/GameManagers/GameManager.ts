@@ -13,6 +13,10 @@ export abstract class GameManager {
 
     abstract checkIfGameIsDone(board: Board): boolean;
 
+    abstract makeMove(board: Board, value: string, column: number, row?: number): Board;
+
+    abstract validateMove(board: Board, column: number, row ?: number): boolean;
+
     public getFirstPlayer() {
         return this.playerValues.firstPlayer;
     }

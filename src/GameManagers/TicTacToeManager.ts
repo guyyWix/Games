@@ -9,6 +9,17 @@ export class TicTacToeManager extends GameManager {
     checkIfGameIsDone: (board: Board) => boolean = (board: Board): boolean => {
         return (this.checkColumns(board) || this.checkRows(board) || this.checkDiagonalEqual(board));
     }
+
+    public validateMove(board: Board, column: number, row: number): boolean {
+        return board[row][column].value === '';
+    }
+
+    public makeMove(board: Board, value: string, column: number, row: number): Board {
+        const newArr = structuredClone(board);
+        newArr[row][column] = {row, column, value};
+        return newArr;
+    }
+
     private checkRows = (board: Board) => {
         for (let row = 0; row < board?.length; row++) {
             if (!this.isBoardCellValid(board, row, 0)) {

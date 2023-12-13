@@ -14,9 +14,6 @@ interface SquareProps {
 const Square: React.FC<SquareProps> = ({row, column, value, gameState, onCellClickHandler}) => {
     const isButtonDisabled = gameState !== GameState.Ongoing;
     const onCellClickHandle = () => {
-        if (value !== '') {
-            return;
-        }
         onCellClickHandler(row, column);
     }
     return <Button className="square" onClickHandler={onCellClickHandle} disabled={isButtonDisabled}

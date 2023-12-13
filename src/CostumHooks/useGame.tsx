@@ -10,13 +10,11 @@ const useGame: (gameManager: GameManager) => Game = (gameManager) => {
     }
 
     const makeMove: (row: number, column: number) => void = (row, column) => {
-        setTurnCounter(prev => prev + 1);
-        toggleCurrPlayer();
-        setBoard((prev) => {
-            const newArr = structuredClone(prev);
-            newArr[row][column] = {row, column, value: currentPlayer};
-            return newArr;
-        });
+        if (gameManager.validateMove(board, column, row)) {
+            setTurnCounter(prev => prev + 1);
+            toggleCurrPlayer();
+            setBoard(gameManager.makeMove(board, currentPlayer, column, row));
+        }
     };
     const resetBoard = () => {
         setTurnCounter(0);

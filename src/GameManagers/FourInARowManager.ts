@@ -10,6 +10,21 @@ export class FourInARowManager extends GameManager {
         return this.checkColumns(board) || this.checkRows(board) || this.checkDiagonals(board);
     };
 
+    public validateMove(board: Board, column: number): boolean {
+        return board[0][column].value === '';
+    }
+
+    public makeMove(board: Board, value: string, column: number): Board {
+        const newArr = structuredClone(board);
+        for (let i = newArr.length - 1; i >= 0; i--) {
+            if (newArr[i][column].value === '') {
+                newArr[i][column] = {column, row: i, value};
+                break
+            }
+        }
+        return newArr;
+    }
+
     private checkRows = (board: Board): boolean => {
         for (let row = 0; row < board.length; row++) {
             for (let col = 0; col <= board[row].length - 4; col++) {
