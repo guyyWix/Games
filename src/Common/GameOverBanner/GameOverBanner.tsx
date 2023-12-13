@@ -1,7 +1,6 @@
-import Button from "../TicaTacToe/Button";
-import {PLAY_AGAIN_TEXT} from "../Constants/Constants";
-import {getPlayerWonText} from "../Utils/utils";
-import {GameState} from "../Types/Types";
+import Button from "../Button/Button";
+import {PLAY_AGAIN_TEXT} from "../../Constants/Constants";
+import {GameState} from "../../Types/Types";
 import React from "react";
 import "./GameOverBanner.css"
 
@@ -9,9 +8,10 @@ import "./GameOverBanner.css"
 interface GameOverBannerProps {
     gameState: GameState,
     onPlayAgainClickHandler: () => void,
+    getPlayerWonText: (gameState: GameState) => string,
 }
 
-const GameOverBanner: React.FC<GameOverBannerProps> = ({gameState, onPlayAgainClickHandler}) => {
+const GameOverBanner: React.FC<GameOverBannerProps> = ({gameState, onPlayAgainClickHandler, getPlayerWonText}) => {
     const gameOverText = getPlayerWonText(gameState);
     {
         return (<div className="game-over">

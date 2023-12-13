@@ -1,20 +1,15 @@
-import React from 'react';
 import './App.css';
-import Board from "../TicaTacToe/Board";
-import {useTicTacToe} from "../Providers/TicTacToeProvider";
-import GameOverBanner from "../Common/GameOverBanner";
-import {GameState} from "../Types/Types";
+import TicTacToe from "../Games/TicaTacToe/TicTacToe";
+import React from "react";
+import FourInARow from "../Games/FourInARow/FourInARow";
 
 function App() {
-
-    const globalContext = useTicTacToe();
-    const isGameOver = globalContext.gameState !== GameState.Ongoing;
-
-    return (<div className="container">
-        {isGameOver && <GameOverBanner gameState={globalContext.gameState}
-                                       onPlayAgainClickHandler={globalContext.resetBoard}/>}
-        <Board/>
-    </div>)
+    return (
+        <div>
+            <FourInARow/>
+            <TicTacToe/>
+        </div>
+    )
 }
 
 export default App;

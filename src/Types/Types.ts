@@ -9,12 +9,10 @@ export enum GameState {
 
 export interface Game {
     resetBoard: () => void;
-    updateCell: () => void;
-    checkIfGameOver: () => void;
-    getGameState: () => GameState;
-    getBoard: () => Board;
-    getCurrentPlayer: () => string;
-    updateCurrentPlayer: () => void;
+    makeMove: (row: number, column: number) => void;
+    gameState: GameState;
+    board: Board;
+    getPlayerWonText: (gameState: GameState) => string,
 }
 
 export interface Square {
