@@ -1,0 +1,1 @@
+export const PLAY_AGAIN_TEXT = 'Play again';

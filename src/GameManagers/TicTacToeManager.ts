@@ -1,9 +1,10 @@
 import {Board} from "../Types/Types";
 import {GameManager} from "./GameManager";
+import {ROWS, COLUMNS, FIRST_PLAYER, SECOND_PLAYER} from "../Constants/TicTacToe";
 
 export class TicTacToeManager extends GameManager {
     constructor() {
-        super(3, 3, {firstPlayer: 'X', secondPlayer: 'O'})
+        super(ROWS, COLUMNS, {firstPlayer: FIRST_PLAYER, secondPlayer: SECOND_PLAYER});
     }
 
     checkIfGameIsDone: (board: Board) => boolean = (board: Board): boolean => {

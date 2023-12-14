@@ -1,9 +1,10 @@
 import {GameManager} from "./GameManager";
 import {Board} from "../Types/Types";
+import {ROWS, COLUMNS, FIRST_PLAYER, SECOND_PLAYER} from '../Constants/FourInARow';
 
 export class FourInARowManager extends GameManager {
     constructor() {
-        super(6, 7, {firstPlayer: 'Y', secondPlayer: 'R'});
+        super(ROWS, COLUMNS, {firstPlayer: FIRST_PLAYER, secondPlayer: SECOND_PLAYER});
     }
 
     public checkIfGameIsDone = (board: Board): boolean => {

@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import {PLAY_AGAIN_TEXT} from "../../Constants/Constants";
+import {PLAY_AGAIN_TEXT} from "../../Constants/General";
 import {GameState} from "../../Types/Types";
 import React from "react";
 import "./GameOverBanner.css"
